@@ -8,8 +8,15 @@ JWT Token Security requires user to have the token before initiating any request
 ## To retrieve JWT Token
 
 1) Hit POST Request on http://localhost:8080/login
-	 with payload:-
-	 	{"username":"admin","password":"password"}
+   #### Payload
+	 
+   {
+   
+   "username":"admin",
+   
+   "password":"password"
+   
+   }
 		
 2) Response Header will contains the JWT Autherization token, copy the token including Bearer
 
@@ -27,11 +34,12 @@ http://localhost:8080/betsapp/bettings
 
 API is exposed to save the betting data.
 
-Use payload as below.
+Use payload as below:-
 
 [
+
 {
-        
+
         "customerId": "customer111",
         "dateTime":"01-01-1986 10:10",
         "propNumber": "123",
@@ -39,14 +47,15 @@ Use payload as below.
         "investment": 10
     },
     {
-        
         "customerId": "customer222",
         "dateTime":"01-01-1986 10:10",
         "propNumber": "123",
         "betType": "WIN",
         "investment": 10
         
- }]
+ }
+ 
+ ]
 
 
 2.**Total investment per bet type**
