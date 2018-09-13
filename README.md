@@ -3,6 +3,7 @@
 # SpringBoot Application with Secure REST with JSON Web Token (JWT)
 
 Application can be used to save bets as per customers and various REST API's are exposed to check the satus.
+
 JWT Token Security requires user to have the token before initiating any request for API's. To get token first user has to generate JWT token using below steps:-
 
 ## To retrieve JWT Token
