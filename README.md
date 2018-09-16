@@ -39,7 +39,7 @@ http://localhost:8080/betsapp/bettings
 
 API is exposed to save the betting data.
 
-Use payload as below:-
+Use **payload** as below:-
 ```
 [
 {
@@ -70,7 +70,7 @@ http://localhost:8080/betsapp/bettings/investment/bettype
 
 Api exposed to fetch total investment for each bettype
 
-### **Output**
+**Output**
 ```
 [
     {
@@ -97,7 +97,7 @@ http://localhost:8080/betsapp/bettings/investment/customer
 
 API exposed to get total investment for each customer
 
-### **Output**
+**Output**
 ```
 [
     {
@@ -140,7 +140,7 @@ http://localhost:8080/betsapp/bettings/betscount
 
 API exposed to get total bets sold for each bet type
 
-### **Output**
+**Output**
 ```
 [
     {
@@ -166,7 +166,7 @@ API exposed to get total bets sold for each bet type
 http://localhost:8080/betsapp/bettings/betshourlycount
 
 API exposed to fetch total bets completed on hourly bases
-### **Output**
+**Output**
 
 ```
 [
