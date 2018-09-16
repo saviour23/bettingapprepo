@@ -166,6 +166,7 @@ API exposed to get total bets sold for each bet type
 http://localhost:8080/betsapp/bettings/betshourlycount
 
 API exposed to fetch total bets completed on hourly bases
+
 **Output**
 
 ```
