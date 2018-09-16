@@ -2,6 +2,9 @@ package com.tc.app.betsapplication.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doNothing;
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -13,31 +16,39 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.web.FilterChainProxy;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.context.WebApplicationContext;
 
-import com.tc.app.betsapplication.controller.ResourceController;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tc.app.betsapplication.data.BetType;
 import com.tc.app.betsapplication.data.BettingData;
 import com.tc.app.betsapplication.data.views.BetTypeCountView;
 import com.tc.app.betsapplication.data.views.BetTypeInvestmentDataView;
 import com.tc.app.betsapplication.data.views.BetsSoldHourlyView;
 import com.tc.app.betsapplication.data.views.CustomerInvestmentDataView;
+import com.tc.app.betsapplication.repository.BettingRepository;
 import com.tc.app.betsapplication.service.BettingService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@WebAppConfiguration
 public class ResourceControllerTest {
 
 	@Autowired
 	ResourceController controller;
 
 	@MockBean
+	BettingRepository bettingRepo;
+	@MockBean
 	BettingService bettingService;
 
-	
+
 	@Test
 	public void testGetInvestmentByBetType() {
 		List<BetTypeInvestmentDataView> viewList = new ArrayList<BetTypeInvestmentDataView>();
@@ -64,7 +75,8 @@ public class ResourceControllerTest {
 		List<CustomerInvestmentDataView> returnList = controller.getInvestmetnByCustomerId();
 		assertThat(returnList.get(0).getTotalInvestment()).isEqualTo(BigDecimal.TEN);
 
-		assertThat(returnList.get(0).getCustomerId()).isEqualTo(customerId);}
+		assertThat(returnList.get(0).getCustomerId()).isEqualTo(customerId);
+	}
 
 	@Test
 	public void testGetBetsCount() {
